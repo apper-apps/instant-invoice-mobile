@@ -125,12 +125,10 @@ const InvoiceGenerator = () => {
       </div>
 {/* Main Content */}
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-8">
-        {isEmpty ? (
+{isEmpty ? (
           <Empty
             title="Ready to create your first invoice?"
             description="Fill out the form below to generate a professional invoice instantly. No account required!"
-            actionText="Get Started"
-            onAction={() => {}}
           />
         ) : (
           <ActionToolbar 

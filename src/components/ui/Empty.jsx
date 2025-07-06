@@ -5,8 +5,6 @@ import ApperIcon from '@/components/ApperIcon'
 const Empty = ({ 
   title = "No data available",
   description = "Get started by adding some content",
-  actionText = "Get Started",
-  onAction,
   icon = "FileText"
 }) => {
   return (
@@ -28,17 +26,6 @@ const Empty = ({
         <p className="text-gray-600 mb-8 leading-relaxed">
           {description}
         </p>
-        
-        {onAction && (
-          <Button
-            onClick={onAction}
-            icon="Plus"
-            size="lg"
-            className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90"
-          >
-            {actionText}
-          </Button>
-        )}
         
         <div className="mt-8 pt-8 border-t border-gray-200">
           <div className="grid grid-cols-3 gap-4 text-center">
