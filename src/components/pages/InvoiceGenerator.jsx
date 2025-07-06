@@ -97,10 +97,10 @@ const InvoiceGenerator = () => {
   const isEmpty = !invoiceData.from.name && !invoiceData.to.name && invoiceData.items.length === 0
   
   return (
-    <div className="min-h-screen bg-gray-50">
+<div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div>
               <h1 className="text-3xl font-bold gradient-text">InstantInvoice</h1>
@@ -123,9 +123,8 @@ const InvoiceGenerator = () => {
           </div>
         </div>
       </div>
-      
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+{/* Main Content */}
+      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 py-8">
         {isEmpty ? (
           <Empty
             title="Ready to create your first invoice?"
@@ -140,30 +139,35 @@ const InvoiceGenerator = () => {
           />
         )}
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
-          {/* Form */}
-          <div className="lg:max-h-screen lg:overflow-y-auto">
-            <InvoiceForm 
-              invoiceData={invoiceData}
-              onInvoiceChange={handleInvoiceChange}
-            />
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mt-8">
+          {/* Form - Takes up 3/5 of the width */}
+          <div className="lg:col-span-3">
+            <div className="bg-white rounded-lg border border-gray-200 p-6 shadow-sm">
+              <InvoiceForm 
+                invoiceData={invoiceData}
+                onInvoiceChange={handleInvoiceChange}
+              />
+            </div>
           </div>
-          
-          {/* Preview */}
-          <div className="lg:sticky lg:top-8">
-            <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
-              <h2 className="text-lg font-semibold mb-4 text-secondary">Live Preview</h2>
-              <div className="transform scale-90 origin-top-left">
-                <InvoicePreview invoiceData={invoiceData} />
+{/* Preview - Takes up 2/5 of the width */}
+          <div className="lg:col-span-2">
+            <div className="lg:sticky lg:top-8 space-y-4">
+              <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
+                <h2 className="text-lg font-semibold mb-4 text-secondary flex items-center">
+                  <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                  Live Preview
+                </h2>
+                <div className="transform scale-80 origin-top-left overflow-hidden">
+                  <InvoicePreview invoiceData={invoiceData} />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-      {/* Footer */}
+{/* Footer */}
       <div className="bg-white border-t border-gray-200 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center text-gray-600">
             <p className="mb-2">© 2024 InstantInvoice. Create professional invoices instantly.</p>
             <p className="text-sm">No registration required • Secure • Fast • Professional</p>
